@@ -4,6 +4,7 @@ import com.thoughtworks.capability.gtb.entrancequiz.BO.Person;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -34,6 +35,11 @@ public class ListController {
     }
     @GetMapping("/person/list")
     public ResponseEntity get_person_list(){
+        return ResponseEntity.ok(List);
+    }
+    @PostMapping("/person/list")
+    public ResponseEntity add_person_to_list(@RequestBody Person person){
+        List.add(person);
         return ResponseEntity.ok(List);
     }
 }
