@@ -2,10 +2,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.API;
 
 import com.thoughtworks.capability.gtb.entrancequiz.BO.Person;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +30,12 @@ public class ListController {
         PersonList.add(new Person(15,"蔡文姬"));
         return PersonList;
     }
+    @CrossOrigin
     @GetMapping("/person/list")
     public ResponseEntity get_person_list(){
         return ResponseEntity.ok(List);
     }
+    @CrossOrigin
     @PostMapping("/person/list")
     public ResponseEntity add_person_to_list(@RequestBody Person person){
         List.add(person);
